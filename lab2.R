@@ -96,26 +96,32 @@ cor (x=below1k$Income, y=below1k$Life)
 
 #reading data
 maas <- read.table("http://www.stat.ucla.edu/~nchristo/statistics12/soil.txt", header=TRUE)
+head(maas)
 
 #a) summary statistics for lead and zinc
 summary(maas$lead)
 summary(maas$zinc)
 
 #b) histogram of lead and log(lead)
-hist(maas$lead)
-hist(log(maas$lead))
+hist(maas$lead, xlab="Lead Levels", ylab="Frequency",
+     main="Frequency of Lead Levels")
+hist(log(maas$lead), xlab="log(Lead) Levels", ylab="Frequency",
+     main="Frequency vs. log(Lead)")
 
 #c) log(lead) vs. log(zinc)
 plot(x=log(maas$zinc),y=log(maas$lead),
-     xlab="log(zinc)", ylab="log(lead)")
+     xlab="log(zinc)", ylab="log(lead)",
+     main="log(zinc) vs. log(lead)")
 
 #d) color scheme for lead concentration risk for 155 locations
-lead_colors <- c("green", "orange", "red")
+lead_colors <- c("blue", "purple", "yellow")
 lead_levels <- cut(maas$lead, c(0,150,400,1000))
 
 #plot
 plot(maas$x, maas$y, cex=maas$lead/mean(maas$lead),
-     col=lead_colors[as.numeric(lead_levels)], pch=19)
+     col=lead_colors[as.numeric(lead_levels)], pch=19,
+     xlab="Lead Concentration (ppm)", ylab="Risk Level",
+     main="Lead Concentration (ppm) vs. Risk Level")
 
 ######################################################
 ###Exercise 4
@@ -124,11 +130,14 @@ LA <- read.table("http://www.stat.ucla.edu/~nchristo/statistics12/la_data.txt", 
 
 #a) plot the data point locations and overlay a map
 library(maps)
-plot(x=LA$Longitude, y=LA$Latitude, ylab="label", xlab="label",
-     main="title", xlim=c(-120,-117), ylim=c(33,35))
+plot(x=LA$Longitude, y=LA$Latitude, asp=1, ylab="Latitude", xlab="Longitude",
+     main="Approximate Centers of Los Angeles Neighborhoods", xlim=c(-119,-118), ylim=c(33,35))
 map("county", "california", add = TRUE)
 
 #b) relationship between income and school performance?
 # ignore data points on the plot for which schools = 0
 LA.subset <- LA[LA$Schools>0,]
-plot(x=LA.subset$Income, y=LA.subset$Schools)
+plot(x=LA.subset$Income, y=LA.subset$Schools,
+     main="Income vs. School Performance",
+     xlab="Income", ylab="School Performance")
+cor (x=LA.subset$Income, y=LA.subset$Schools)
