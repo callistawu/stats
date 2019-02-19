@@ -114,11 +114,14 @@ pnorm(4,mean=2,sd=.7)
 ######################################################
 ###Exercise 4: Calculating normal and binomal distribution probabilities
 
+#a)Y:= # of rainy days in 2019
+Y~binomial(n=365,p=0.4)
+
 #b) Mean and Standard Deviation of Raid days in 2019
 #set the value of n appropriately
-n = 
+n = 365
 #set the value of p appropriately
-p = 
+p = 0.4
 #calculate the mean
 n*p
 #calculate the sd
