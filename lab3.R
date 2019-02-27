@@ -83,6 +83,7 @@ numbers = 1:6
 rand_draws = replicate(5000, sample(numbers, 2, replace = TRUE))
 
 #Why is the replace argument set to 'TRUE'?
+#allows for sampling with replacement for true random sampling
 
 ##Result of the sum of two dice
 results = colSums(rand_draws) ##takes the sum of each sample
@@ -137,3 +138,4 @@ pbinom(175,size=n,prob=p)-pbinom(124,size=n,prob=p)
 #e) Probability that the park will experience more than 230 inches of rain in 2019
 1-pnorm(230, mean=200, sd=20)
 #Why do we have 1 minus a value?
+#finding the complement for normal model
