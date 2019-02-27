@@ -40,7 +40,7 @@ schools[c(1,3)]
 
 ######################################################
 ###Section 1 Exercises
-##Exercise 1: Vectors.
+##Exercise 1: Vectors
 #a) Vector named 'heights' with your and two neighbors' heights. Print the vector.
 heights <- c(61,66,65)
 print(heights)
@@ -58,13 +58,6 @@ cbind(heights, names)
 NCbirths <- read.csv("NCbirths.csv", header=TRUE)
 head(NCbirths)
 
-##Important: the file must have a '.csv' extension. 
-##If it does not, you did not save the file in the correct format.
-##On Macs: ctrl-click link > Download Linked File [first option]
-##On Windows: right click link > save linked file as > ...
-
-#If you set the working directory to the folder where 'births.csv' is saved:
-
 #b) Check if things work: 
 head(NCbirths)
 
@@ -72,11 +65,6 @@ head(NCbirths)
 #a) Install and verify installation.
 install.packages('maps')
 find.package("maps")
-
-#if you have not installed yet, highlight and run (excluding the '#' symbols): 
-## install.packages('maps')
-
-find.package('maps') #if not installed, you will get an error message. 
 
 #b) Load the 'maps' package.
 library("maps") #loads the desired package
@@ -89,8 +77,7 @@ weights=NCbirths$weight
 # b) What units do you think the weights are in?
 #ounces
 
-# c) Create a new vector named 'weights.in.pounds' which are the weights 
-# of the babies in pounds. You can look up conversion factors on the internet.
+# c) Create a new vector named 'weights.in.pounds' which are the weights of the babies in pounds.
 weights.in.pounds <- (weights*0.0625)
 
 # d) Demonstrate your success by typing weights.in.pounds[1:20] and 
@@ -99,23 +86,19 @@ weights.in.pounds <- weights.in.pounds[1:20]
 
 ######################################################
 ### Section 2 – Summarizing Data (one variable)
-## Section 2 Exercises.
+## Section 2 Exercises
 
-#If you haven't already installed "mosaic" package, run (with out '#' symbols):
-## install.packages('mosaic')
-
-#load the mosaic package: 
+#Install "mosaic" package
+install.packages('mosaic')
 library(mosaic)
 
-#Exercise 1: Mean weight of the babies.
+#Exercise 1: Mean weight of the babies
 tally(NCbirths$Habit)
 mean(NCbirths$weight)
 
-#Exercise 2: Percentage of women who smoke in sample.
+#Exercise 2: Percentage of women who smoke in sample
 tally(NCbirths$Habit,format='percent')
 # 9.39%.
-
-#Exercise 3: No R work. See lab manual and answer accordingly.
 
 ######################################################
 
@@ -124,33 +107,30 @@ tally(NCbirths$Habit,format='percent')
 
 #Load package 'mosaic'
 library(mosaic)
-
-#If necessary, install 'mosaic' and run previous line again
-## install.packages('mosaic')
+install.packages('mosaic')
 
 # Exercise 1: Produce a dot plot of the weights in pounds.
 dotPlot(weights.in.pounds, xlab="Weights (pounds)", ylab="Frequency", main="Weights in Pounds")
 
-# Exercise 2: Produce three different histograms of the weights in pounds. 
+# Exercise 2: Produce three different histograms of the weights in pounds.
 # Use 3 bins, 20 bins, and 100 bins.
 hist(weights.in.pounds)
 hist(weights.in.pounds, breaks=seq(from = 0,to = 12, l=4))#3 bins
 hist(weights.in.pounds, breaks=seq(from = 0,to = 12, l=21))#3 bins
 hist(weights.in.pounds, breaks=seq(from = 0,to = 12, l=101))#3 bins
 
-# Exercise 3: Create a side by side boxplot of the mother’s ages and the father’s ages. 
+# Exercise 3: Create a side by side boxplot of the mother’s ages and the father’s ages.
 boxplot(NCbirths$Mage,NCbirths$Fage,
         names=c("Mother","Father"),ylab="Age (years)", main="Mother and Father's Ages")
 
-# Exercise 4: Describe what this code does. And answer the pertinent follow-up question
-# in the lab manual. 
+# Exercise 4: Describe what this code does.
 histogram(~weight | Habit, data = NCbirths, layout=c(1,2))
 
 ######################################################
 ### Section 4 – Visualizing Data (two categorical)
 ## Section 4 exercises
-# Exercise 1: Find a categorical variable that summarizes a 
-# baby's health. Show its relationship to Mother's Smoking Habit.
+# Exercise 1: Find a categorical variable that summarizes a baby's health. 
+# Show its relationship to Mother's Smoking Habit.
 colnames(NCbirths)#the variables in this data set for you to check.
 
 tally(~Habit | BirthComp, data = NCbirths, format = "proportion")
@@ -163,9 +143,9 @@ plot(NCbirths$weight ~ NCbirths$Gained, col = "red", cex = 1.5, pch = 3,
      xlab = "Weight gained during pregnancy", ylab = "Baby weight (oz.)",
      main = "Baby weight vs. pregnancy weight gain")
 
-# Section 5 exercises
+# Section 5 Exercises
 # 1. Produce a nicely formatted scatter plot of the weight of 
-# the baby vs. the mother’s age. Hint: Change previous examples accordingly.
+# the baby vs. the mother’s age.
 
 plot(NCbirths$weight ~ NCbirths$Mage, col = "blue", cex = 1, pch = 1, 
      xlab = "Mother's age (years)", ylab = "Baby weight (oz.)", 
@@ -175,8 +155,7 @@ plot(NCbirths$weight ~ NCbirths$Mage, col = "blue", cex = 1, pch = 1,
 ### Section 6 – Visualizing Data (geographic data)
 
 ## Section 6 exercises
-# Exercise 1: Reproduce results in pgs. 8-11 of handout
-# with some modifications as referred to in lab manual. 
+# Exercise 1: Reproduce results in pgs. 8-11 of handout with some modifications as referred to in lab manual. 
 
 a <- read.table("http://www.stat.ucla.edu/~nchristo/statistics12/ozone.txt", header=TRUE)
 head(a)
