@@ -126,6 +126,8 @@ sd(phats)
 
 #c) Do you think the simulated distribution of 
 #sample proportions is approximately normal?
+#Central Limit Theorem conditions
+#look at visual evidence for or against
 
 #d) Using CLT theoretical results, what would you predict the
 #mean and standard deviation of the sampling distribution of
@@ -133,8 +135,11 @@ sd(phats)
 (p_true=mean(pawnee$New_hlth_issue=="Y"))
 (se_true=sqrt(p_true*(1-p_true)/n))
 
-p_true - mean(phats)
+p_true - mean(phats) 
+#difference between true population proportion and mean of histogram
+
 se_true - sd(phats)
+#difference between the true standard error and standard deviation of phat spector
 
 ######################################################
 ###Exercise 3
@@ -170,3 +175,5 @@ curve(dnorm(x,mean(xbars), sd(xbars)), add=TRUE)
 
 #c) Do you think the simulated distribution of 
 #sample arsenic means is approximately normal?
+#Central Limit Theorem conditions
+#look at visual evidence for or against
