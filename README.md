@@ -1,4 +1,4 @@
-# stats 10, winter 2019
+# stats
 
 **Lab 1:** R Basics and Working with Data
 
