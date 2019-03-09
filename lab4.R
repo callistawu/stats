@@ -82,9 +82,11 @@ mean(pawnee$New_hlth_issue=="Y")
 
 #h) Visualizing distribution of arsenic levels for the houses in Pawnee
 hist(pawnee$Arsenic, breaks=42, xaxt='n', prob=T,
-     xlab="label")
+     xlab="Arsenic Levels", main="Arsenic Levels for Houses in Pawnee")
 axis(side=1, at=seq(0,210,l=43), labels=seq(0,210,l=43))
 
+boxplot(pawnee$Arsenic,ylab="Arsenic Level",
+        main="Arsenic Levels for Houses in Pawnee")
 
 ######################################################
 ###Exercise 2
@@ -120,6 +122,9 @@ for (i in 1:M){
 hist(phats, prob=T)
 curve(dnorm(x,mean(phats), sd(phats)), add=TRUE)
 
+hist(phats,prob=T, breaks = seq(0, max(phats), 1/n))
+curve(dnorm(x,mean(phats),sd(phats)), add=TRUE)
+
 #b) mean and standard deviation of phats
 mean(phats)
 sd(phats)
@@ -148,7 +153,7 @@ se_true - sd(phats)
 #create objects for common quantities
 n <- 30 #sample size
 N <- 541 #population size
-M <- 1000 <- #number of samples/repetitions
+M <- 1000 #number of samples/repetitions
 
 #create vectors to store simulated proportions from each repetition
 xbars <- c() #for sample means
